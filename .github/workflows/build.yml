@@ -42,4 +42,3 @@ jobs:
             TMessagesProj/build/outputs/apk/**/*.apk
             TMessagesProj_AppStandalone/build/outputs/apk/**/*.apk
           if-no-files-found: warn
-concurrency: 
