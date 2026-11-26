@@ -18,7 +18,7 @@ jobs:
           cp -r kiokio-mod/TMessagesProj/src/main/java/tw TMessagesProj/src/main/java/
       - name: Сборка
         run: |
-          cd TMessagesProj
+          chmod +x gradlew
           ./gradlew assembleAfatDebug || ./gradlew assembleDebug
       - name: Загрузка APK
         uses: actions/upload-artifact@v4
