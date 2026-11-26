@@ -7,23 +7,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses:       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
-
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-      - name: Распаковка мода
+      - name: Unpack mod
         run: |
           unzip -o kiokio-mod.zip
           cp -r kiokio-mod/TMessagesProj/src/main/java/tw TMessagesProj/src/main/java/
-      - name: Сборка
+      - name: Build
         run: |
           chmod +x gradlew
           ./gradlew assembleAfatDebug || ./gradlew assembleDebug
-      - name: Загрузка APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: kiokio-apk
